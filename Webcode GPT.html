@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Board</title>
+<style>
+/* Some basic styling */
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f0f0f0;
+}
+.container {
+max-width: 800px;
+margin: 20px auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input[type="text"] {
+width: calc(100% - 20px);
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 4px;
+border: 1px solid #ccc;
+font-size: 16px;
+}
+button {
+padding: 10px 20px;
+background-color: #007bff;
+border: none;
+color: #fff;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+button:hover {
+background-color: #0056b3;
+}
+.messages {
+margin-top: 20px;
+}
+.message {
+background-color: #f9f9f9;
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<input type="text" id="messageInput" placeholder="Type your message...">
+<button onclick="postMessage()">Post</button>
+<div class="messages" id="messageBoard">
+<!-- Message board will be populated here -->
+</div>
+</div>
+
+<script>
+// Function to post a message
+function postMessage() {
+var messageInput = document.getElementById("messageInput");
+var message = messageInput.value;
+
+// Clear input field
+messageInput.value = "";
+
+// Create a new message element
+var messageElement = document.createElement("div");
+messageElement.classList.add("message");
+messageElement.textContent = message;
+
+// Append the message element to the message board
+var messageBoard = document.getElementById("messageBoard");
+messageBoard.appendChild(messageElement);
+}
+</script>
+</body>
+</html>
